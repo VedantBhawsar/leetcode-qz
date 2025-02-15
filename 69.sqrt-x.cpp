@@ -15,18 +15,32 @@ public:
     int mySqrt(long long int x)
     {
         long long int ans = 0;
-        for (long long int  i = 1; i <= x; i++)
+        // for (long long int  i = 1; i <= x; i++)
+        // {
+        //     if (i * i <= x)
+        //     {
+        //         ans = i;
+        //     }
+        //     else
+        //     {
+        //         break;
+        //     }
+        // }
+
+        long long int s = 1, e = x;
+        while (s <= e)
         {
-            if (i * i <= x)
+            long long int mid = s + (e - s) / 2;
+            if (mid * mid > x)
             {
-                ans = i;
+                e = mid - 1;
             }
             else
             {
-                break;
+                s = mid + 1;
             }
         }
-        return ceil(ans);
+        return e;
     }
 };
 // @lc code=end
